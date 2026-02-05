@@ -43,7 +43,7 @@ button {
   font-size: 32px;
 }
 
-/* 🎨 COLOR THEMES */
+
 .joy { background: #fff3b0; }
 .anger { background: #ffcccc; }
 .sadness { background: #cce0ff; }
@@ -53,7 +53,7 @@ button {
 .embarrassed { background: #ffd6e8; }
 .envy { background: #ccffd9; }
 
-/* 🎞️ ANIMATIONS */
+
 @keyframes pop {
   0% { transform: scale(0); }
   100% { transform: scale(1); }
