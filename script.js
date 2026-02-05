@@ -1,4 +1,3 @@
-// 🎉 Disco intro
 const page = document.getElementById("page");
 let discoColors = ["#ffff00","#ff0000","#00ff00","#0000ff","#ff00ff","#00ffff","#ff8800"];
 let discoIndex = 0;
@@ -7,7 +6,6 @@ let discoInterval = setInterval(() => {
     discoIndex = (discoIndex + 1) % discoColors.length;
 }, 1500); // change color every 1.5 seconds
 
-// 🎈 Particle system
 const particleLayer = document.createElement("div");
 particleLayer.style.position = "absolute";
 particleLayer.style.top = 0;
@@ -53,11 +51,11 @@ function launchParticles(emotion) {
     else if(emotion=="envy") particleInterval = setInterval(()=>createParticle("🍃",Math.random()*width,0,20+Math.random()*10,2+Math.random()*2),200);
     else if(emotion=="embarrassed") particleInterval = setInterval(()=>createParticle("🙈",Math.random()*width,0,20+Math.random()*10,2+Math.random()*2),200);
     else if(emotion=="bored") particleInterval = setInterval(()=>createParticle("😴",Math.random()*width,0,20+Math.random()*10,1+Math.random()*2),300);
-    // ✅ Neutral particles
+    
     else if(emotion=="neutral") particleInterval = setInterval(()=>createParticle("⚪",Math.random()*width,0,15+Math.random()*10,1+Math.random()*1.5),400);
 }
 
-// 🧠 Keyword mapping for smarter detection
+
 const emotionKeywords = {
     joy: ["happy","good", "excited", "energetic", "delighted", "cheerful", "joyful", "elated", "thrilled"],
     anger: ["angry", "mad", "furious", "irritated", "annoyed", "frustrated"],
@@ -67,23 +65,23 @@ const emotionKeywords = {
     embarrassed: ["embarrassed", "shy", "awkward", "self-conscious", "blush"],
     envy: ["envy", "jealous", "resentful", "covetous"],
     bored: ["bored", "uninterested", "meh", "tired of"],
-    // ✅ Neutral keywords
+  
     neutral: ["neutral","okay","fine","meh","so-so","average"]
 };
 
-// 🌈 Analyze emotion
+
 function analyzeEmotion() {
     const text = document.getElementById("userInput").value.toLowerCase();
     const result = document.getElementById("emotionResult");
     const content = document.getElementById("adaptiveContent");
     const anim = document.getElementById("animation");
 
-    // Stop disco
+    
     clearInterval(discoInterval);
 
     anim.className = "";
 
-    // 🔍 Detect emotion using keywords
+    
     let detectedEmotion = "bored"; // default
     let emotionColor = "#eeeeee";
 
@@ -97,7 +95,7 @@ function analyzeEmotion() {
         if(detectedEmotion !== "bored") break;
     }
 
-    // 🎨 Set color based on emotion
+    
     switch(detectedEmotion){
         case "joy": emotionColor = "#ffff00"; break;
         case "anger": emotionColor = "#ff0000"; break;
@@ -107,13 +105,13 @@ function analyzeEmotion() {
         case "embarrassed": emotionColor = "#ffd6e8"; break;
         case "envy": emotionColor = "#ccffd9"; break;
         case "bored": emotionColor = "#eeeeee"; break;
-        // ✅ Neutral color
+        
         case "neutral": emotionColor = "#d3d3d3"; break;
     }
 
     page.style.background = emotionColor;
 
-    // 🎇 Launch particles for the detected emotion
+    
     launchParticles(detectedEmotion);
 
     const responses = {
